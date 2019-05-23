@@ -2014,6 +2014,7 @@ DLLEXPORT unsigned char *tjLoadImage(const char *filename, int *width,
 
   if (*pixelFormat == TJPF_UNKNOWN) cinfo->in_color_space = JCS_UNKNOWN;
   else cinfo->in_color_space = pf2cs[*pixelFormat];
+#ifndef ANDROID
   if (tempc == 'B') {
     if ((src = jinit_read_bmp(cinfo, FALSE)) == NULL)
       _throwg("tjLoadImage(): Could not initialize bitmap loader");
@@ -2023,6 +2024,7 @@ DLLEXPORT unsigned char *tjLoadImage(const char *filename, int *width,
       _throwg("tjLoadImage(): Could not initialize bitmap loader");
     invert = (flags & TJFLAG_BOTTOMUP) != 0;
   } else
+#endif
     _throwg("tjLoadImage(): Unsupported file type");
 
   src->input_file = file;
@@ -2104,6 +2106,7 @@ DLLEXPORT int tjSaveImage(const char *filename, unsigned char *buffer,
   dinfo->scale_num = dinfo->scale_denom = 1;
 
   ptr = strrchr(filename, '.');
+#ifndef ANDROID
   if (ptr && !strcasecmp(ptr, ".bmp")) {
     if ((dst = jinit_write_bmp(dinfo, FALSE, FALSE)) == NULL)
       _throwg("tjSaveImage(): Could not initialize bitmap writer");
@@ -2113,7 +2116,7 @@ DLLEXPORT int tjSaveImage(const char *filename, unsigned char *buffer,
       _throwg("tjSaveImage(): Could not initialize PPM writer");
     invert = (flags & TJFLAG_BOTTOMUP) != 0;
   }
-
+#endif
   dst->output_file = file;
   (*dst->start_output) (dinfo, dst);
   (*dinfo->mem->realize_virt_arrays) ((j_common_ptr)dinfo);
