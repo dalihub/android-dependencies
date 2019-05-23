@@ -2,7 +2,7 @@
  *
  * ft2build.h
  *
- *   FreeType 2 build and setup macros.
+ *   FreeType 2 build and setup macros (development version).
  *
  * Copyright (C) 1996-2019 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
@@ -16,25 +16,21 @@
  */
 
 
-  /**************************************************************************
-   *
-   * This is the 'entry point' for FreeType header file inclusions.  It is
-   * the only header file which should be included directly; all other
-   * FreeType header files should be accessed with macro names (after
-   * including `ft2build.h`).
-   *
-   * A typical example is
-   *
-   * ```
-   *   #include <ft2build.h>
-   *   #include FT_FREETYPE_H
-   * ```
-   *
-   */
-
+ /*
+  * This is a development version of <ft2build.h> to build the library in
+  * debug mode.  Its only difference to the default version is that it
+  * includes a local `ftoption.h' header file with different settings for
+  * many configuration macros.
+  *
+  * To use it, simply ensure that the directory containing this file is
+  * scanned by the compiler before the default FreeType header directory.
+  *
+  */
 
 #ifndef FT2BUILD_H_
 #define FT2BUILD_H_
+
+#define FT_CONFIG_OPTIONS_H  <ftoption.h>
 
 #include <freetype/config/ftheader.h>
 

@@ -23,12 +23,11 @@ PROJECT_TITLE := FreeType
 #
 TOP_DIR ?= .
 
-# The variable OBJ_DIR gives the location where object files and the
-# FreeType library are built.
-#
-OBJ_DIR ?= $(TOP_DIR)/objs
-
-
-include $(TOP_DIR)/builds/toplevel.mk
+MODULE_NAME=libfreetype
+NDK_PROJECT_PATH = null
+NDK_OUT = ./obj
+NDK_LIBS_OUT = ./lib
+NDK_APPLICATION_MK = ./Application.mk
+include $(ANDROID_NDK)/build/core/build-local.mk
 
 # EOF
