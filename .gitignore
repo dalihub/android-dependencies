@@ -12,4 +12,6 @@ libharfbuzz/obj
 libharfbuzz/lib
 libjpeg-turbo/obj
 libjpeg-turbo/lib
+libpng/obj
+libpng/lib
 
