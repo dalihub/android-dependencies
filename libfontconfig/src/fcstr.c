@@ -1,7 +1,7 @@
 /*
  * $RCSId: xc/lib/fontconfig/src/fcstr.c,v 1.10 2002/08/31 22:17:32 keithp Exp $
  *
- * Copyright © 2000 Keith Packard
+ * Copyright ï¿½ 2000 Keith Packard
  *
  * Permission to use, copy, modify, distribute, and sell this software and its
  * documentation for any purpose is hereby granted without fee, provided that
@@ -59,8 +59,11 @@ FcStrPlus (const FcChar8 *s1, const FcChar8 *s2)
 void
 FcStrFree (FcChar8 *s)
 {
-    FcMemFree (FC_MEM_STRING, strlen ((char *) s) + 1);
-    free (s);
+    if (s)
+    {
+        FcMemFree(FC_MEM_STRING, strlen((char *) s) + 1);
+        free(s);
+    }
 }
 
 int

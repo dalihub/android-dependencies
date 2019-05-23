@@ -89,8 +89,8 @@ typedef int		FcBool;
 #define FC_LANG		    "lang"		/* String RFC 3066 langs */
 #define FC_FONTVERSION	    "fontversion"	/* Int from 'head' table */
 
-#define FC_DIR_CACHE_FILE	    "fonts.cache-"FC_CACHE_VERSION
-#define FC_USER_CACHE_FILE	    ".fonts.cache-"FC_CACHE_VERSION
+#define FC_DIR_CACHE_FILE	    "fonts.cache-" FC_CACHE_VERSION
+#define FC_USER_CACHE_FILE	    ".fonts.cache-" FC_CACHE_VERSION
 
 /* Adjust outline rasterizer */
 #define FC_CHAR_WIDTH	    "charwidth"	/* Int */

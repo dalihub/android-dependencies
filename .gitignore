@@ -2,4 +2,6 @@ libexif/obj
 libexif/lib
 libexpat/obj
 libexpat/lib
+libfontconfig/obj
+libfontconfig/lib
 

@@ -1,7 +1,7 @@
 /*
  * $RCSId: xc/lib/fontconfig/src/fccfg.c,v 1.23 2002/08/31 22:17:32 keithp Exp $
  *
- * Copyright © 2000 Keith Packard
+ * Copyright ï¿½ 2000 Keith Packard
  *
  * Permission to use, copy, modify, distribute, and sell this software and its
  * documentation for any purpose is hereby granted without fee, provided that
@@ -56,10 +56,14 @@ FcConfigCreate (void)
 	goto bail3;
     
     config->cache = 0;
+#ifndef ANDROID
     if (FcConfigHome())
 	if (!FcConfigSetCache (config, (FcChar8 *) ("~/" FC_USER_CACHE_FILE)))
 	    goto bail4;
-
+#else
+  if (!FcConfigSetCache (config, (FcChar8 *) (FONTCONFIG_PATH FC_USER_CACHE_FILE)))
+      goto bail4;
+#endif
     config->blanks = 0;
 
     config->substPattern = 0;
