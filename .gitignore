@@ -6,4 +6,6 @@ libfontconfig/obj
 libfontconfig/lib
 libfreetype/obj
 libfreetype/lib
+libgif/obj
+libgif/lib
 
