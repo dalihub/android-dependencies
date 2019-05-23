@@ -8,4 +8,6 @@ libfreetype/obj
 libfreetype/lib
 libgif/obj
 libgif/lib
+libharfbuzz/obj
+libharfbuzz/lib
 
