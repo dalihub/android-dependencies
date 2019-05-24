@@ -10,6 +10,7 @@ libgif/obj
 libgif/lib
 libharfbuzz/obj
 libharfbuzz/lib
+libharfbuzz/harfbuzz
 libjpeg-turbo/obj
 libjpeg-turbo/lib
 libpng/obj
