@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ -z "$NDK" ]; then
-    . env.sh
+    . ./env.sh
 fi
 
 if [ ! -d "$ANDROID_SDK" ]; then
