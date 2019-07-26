@@ -61,8 +61,8 @@ FcConfigCreate (void)
 	if (!FcConfigSetCache (config, (FcChar8 *) ("~/" FC_USER_CACHE_FILE)))
 	    goto bail4;
 #else
-  if (!FcConfigSetCache (config, (FcChar8 *) (FONTCONFIG_PATH FC_USER_CACHE_FILE)))
-      goto bail4;
+    if (!FcConfigSetCache (config, (FcChar8 *) (FONTCONFIG_PATH FC_USER_CACHE_FILE)))
+        goto bail4;
 #endif
     config->blanks = 0;
 
@@ -1391,6 +1391,22 @@ DllMain (HINSTANCE hinstDLL,
 
 #undef FONTCONFIG_PATH
 #define FONTCONFIG_PATH fontconfig_path
+
+#elif defined(ANDROID)
+
+static FcChar8 fontconfig_path[256] = "";
+static FcChar8 fontconfig_file[256] = "";;
+
+void FcConfigPathInit(const char *path, const char *file)
+{
+    strcpy (fontconfig_path, path);
+    strcpy (fontconfig_file, file);
+}
+
+#undef FONTCONFIG_PATH
+#undef FONTCONFIG_FILE
+#define FONTCONFIG_PATH fontconfig_path
+#define FONTCONFIG_FILE fontconfig_file
 
 #else /* !(_WIN32 && PIC) */
 

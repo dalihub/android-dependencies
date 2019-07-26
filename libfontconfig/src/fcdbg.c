@@ -26,6 +26,11 @@
 #include <stdlib.h>
 #include "fcint.h"
 
+#if defined(ANDROID)
+#include <android/log.h>
+#define printf(...) __android_log_print(ANDROID_LOG_DEBUG, "TAG", __VA_ARGS__)
+#endif
+
 void
 FcValuePrint (const FcValue v)
 {
