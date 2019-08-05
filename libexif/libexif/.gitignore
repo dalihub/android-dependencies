@@ -7,4 +7,3 @@ libexif.la
 *.lo
 *.la
 libexif.pc
-_stdint.h
