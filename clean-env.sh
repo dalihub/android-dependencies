@@ -1,0 +1,22 @@
+# version:
+#   https://dl.google.com/android/repository/android-ndk-r19b-linux-x86_64.zip
+#   https://dl.google.com/android/repository/cmake-3.10.2-linux-x86_64.zip
+#   https://dl.google.com/android/repository/lldb-3.1.4508709-linux-x86_64.zip
+# instructions from https://developer.android.com/ndk/guides/other_build_systems
+export NDK=/home/SERILOCAL/adam.b/opt/opt/android-sdk/ndk-bundle
+export ANDROID_NDK=$NDK
+export ANDROID_SDK=/home/SERILOCAL/adam.b/opt/opt/android-sdk
+export HOST_TAG=linux-x86_64
+export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/$HOST_TAG
+export AR=
+export AS=
+export CC=
+export CXX=
+export LD=
+export RANLIB=
+export STRIP=
+export SYSROOT=
+export PATH=
+export CFLAGS=
+export CXXFLAGS=
+export HOST=
