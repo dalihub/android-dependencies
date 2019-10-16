@@ -538,7 +538,7 @@ if(PNG_SHARED)
   endif()
   target_link_libraries(png ${ZLIB_LIBRARY} ${M_LIBRARY})
 
-  if(UNIX AND AWK)
+  if(UNIX AND AWK AND NOT ANDROID)
     if(HAVE_LD_VERSION_SCRIPT)
       set_target_properties(png PROPERTIES LINK_FLAGS
         "-Wl,--version-script='${CMAKE_CURRENT_BINARY_DIR}/libpng.vers'")
