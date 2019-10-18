@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libgif
+Description: Loads and saves GIF files
+Version: @GIFLIB_VERSION@
+Libs: -L${libdir} -lgif
+Libs.private: @LIBS@
+Cflags: -I${includedir}
