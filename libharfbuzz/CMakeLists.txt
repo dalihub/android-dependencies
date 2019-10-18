@@ -271,6 +271,7 @@ if (HB_HAVE_FREETYPE)
 
   list(APPEND THIRD_PARTY_LIBS ${FREETYPE_LIBRARIES})
   include_directories(AFTER ${FREETYPE_INCLUDE_DIRS})
+  link_directories(${FREETYPE_LIBRARY_DIRS})
   add_definitions(-DHAVE_FREETYPE=1)
 
   list(APPEND project_sources ${PROJECT_SOURCE_DIR}/src/hb-ft.cc)
