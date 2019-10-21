@@ -241,6 +241,10 @@ endif ()
 file(WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ftconfig.h"
   "${FTCONFIG_H}")
 
+if (ENABLE_DEVEL)
+  file(WRITE "${PROJECT_BINARY_DIR}/include/ftconfig.h"
+    "${FTCONFIG_H}")
+endif()
 
 # Create the options file
 file(READ "${PROJECT_SOURCE_DIR}/include/freetype/config/ftoption.h"
@@ -268,6 +272,10 @@ endif ()
 file(WRITE "${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h"
   "${FTOPTION_H}")
 
+if (ENABLE_DEVEL)
+  file(WRITE "${PROJECT_BINARY_DIR}/include/ftoption.h"
+    "${FTOPTION_H}")
+endif()
 
 file(GLOB PUBLIC_HEADERS "include/ft2build.h" "include/freetype/*.h")
 file(GLOB PUBLIC_CONFIG_HEADERS "include/freetype/config/*.h")
@@ -433,6 +441,19 @@ if (NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
       DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype2/freetype/config
       COMPONENT headers)
 endif ()
+
+if (ENABLE_DEVEL)
+  install(
+    # Note the trailing slash in the argument to `DIRECTORY'!
+    DIRECTORY ${PROJECT_SOURCE_DIR}/include/freetype/internal/
+      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype2/freetype/internal
+      COMPONENT headers)
+  install(
+    FILES ${PROJECT_BINARY_DIR}/include/freetype/config/ftconfig.h
+          ${PROJECT_BINARY_DIR}/include/freetype/config/ftoption.h
+      DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/freetype2
+      COMPONENT headers)
+endif()
 
 if (NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
   # Generate the pkg-config file
