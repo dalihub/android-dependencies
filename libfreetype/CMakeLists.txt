@@ -466,9 +466,9 @@ if (NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
            FREETYPE2_PC_IN ${FREETYPE2_PC_IN})
     string(REPLACE "%exec_prefix%" "\${prefix}"
            FREETYPE2_PC_IN ${FREETYPE2_PC_IN})
-    string(REPLACE "%libdir%" "\${prefix}/${CMAKE_INSTALL_LIBDIR}"
+    string(REPLACE "%libdir%" ${CMAKE_INSTALL_LIBDIR}
            FREETYPE2_PC_IN ${FREETYPE2_PC_IN})
-    string(REPLACE "%includedir%" "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}"
+    string(REPLACE "%includedir%" ${CMAKE_INSTALL_INCLUDEDIR}
            FREETYPE2_PC_IN ${FREETYPE2_PC_IN})
     string(REPLACE "%ft_version%" "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
            FREETYPE2_PC_IN ${FREETYPE2_PC_IN})
