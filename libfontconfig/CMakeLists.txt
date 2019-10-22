@@ -79,8 +79,8 @@ if (NOT EXPAT_FOUND)
   endif ()
 endif ()
 
-include_directories(AFTER ${FREETYPE_INCLUDE_DIRS})
-add_definitions(-DHAVE_FREETYPE=1)
+include_directories(AFTER ${EXPAT_INCLUDE_DIRS})
+add_definitions(-DHAVE_EXPAT=1)
 
 unset(FONTCONFIG_LIB_TARGETS)
 
