@@ -32,7 +32,7 @@ if [ ! -z "$DEBUG" ]; then
 export CMAKE_BUILD_TYPE=Debug
 fi
 
-export TOP_DIR=$(pwd) 
+export TOP_DIR=$(pwd)
 
 buildLib()
 {
@@ -66,5 +66,6 @@ buildLib "../libfreetype" "-DBUILD_SHARED_LIBS=ON -DFT_WITH_ZLIB=ON -DFT_WITH_PN
 buildLib "../libharfbuzz" "-DHB_BUILTIN_UCDN=ON -DHB_HAVE_FREETYPE=ON -DBUILD_SHARED_LIBS=ON"
 buildLib "../libfreetype" "-DHB_BUILTIN_UCDN=ON -DHB_HAVE_FREETYPE=ON -DBUILD_SHARED_LIBS=ON"
 buildLib "../libfontconfig" "-DFONTCONFIG_SHARED=ON -DREAD_ONLY_DIR=/data/data/com.sec.dali_demo/files/fonts"
+buildLib "../libfribidi" "-DFRIBIDI_SHARED=ON"
 buildLib "../libcurl" "-DBUILD_CURL_EXE=OFF -DCMAKE_USE_OPENSSL=OFF -DCMAKE_USE_LIBSSH2=OFF -DCURL_CA_PATH=none -DCMAKE_DEBUG_POSTFIX=''"
 
