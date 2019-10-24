@@ -107,7 +107,7 @@ set(exec_prefix ${CMAKE_INSTALL_PREFIX})
 set(libdir      ${CMAKE_INSTALL_FULL_LIBDIR})
 set(includedir  ${CMAKE_INSTALL_FULL_INCLUDEDIR})
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/fribidi.pc.in
-    ${CMAKE_CURRENT_BINARY_DIR}/libfribidi.pc @ONLY)
+    ${CMAKE_CURRENT_BINARY_DIR}/fribidi.pc @ONLY)
 
 # INSTALL
 if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
@@ -125,7 +125,7 @@ endif()
 
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
   # Install pkg-config files
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libfribidi.pc
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/fribidi.pc
           DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 endif()
 

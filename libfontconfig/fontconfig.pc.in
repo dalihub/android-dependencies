@@ -3,8 +3,9 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: Fontconfig
-Description: Font configuration and customization library
+Name: libfontconfig
+Description: Configures fonts database
 Version: @VERSION@
 Libs: -L${libdir} -lfontconfig
+Libs.private: @LIBS@
 Cflags: -I${includedir}

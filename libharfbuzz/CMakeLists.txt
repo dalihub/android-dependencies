@@ -783,6 +783,19 @@ endif ()
 ## Install
 include (GNUInstallDirs)
 
+set(prefix      ${CMAKE_INSTALL_PREFIX})
+set(exec_prefix ${CMAKE_INSTALL_PREFIX})
+set(libdir      ${CMAKE_INSTALL_FULL_LIBDIR})
+set(includedir  ${CMAKE_INSTALL_FULL_INCLUDEDIR})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/harfbuzz.pc.in
+    ${CMAKE_CURRENT_BINARY_DIR}/harfbuzz.pc @ONLY)
+
+if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
+  # Install pkg-config files
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/harfbuzz.pc
+          DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+endif()
+
 if (NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
   install(FILES ${project_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/harfbuzz)
   if (HB_HAVE_GOBJECT)

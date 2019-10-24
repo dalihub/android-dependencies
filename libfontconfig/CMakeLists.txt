@@ -116,8 +116,8 @@ set(prefix      ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix ${CMAKE_INSTALL_PREFIX})
 set(libdir      ${CMAKE_INSTALL_FULL_LIBDIR})
 set(includedir  ${CMAKE_INSTALL_FULL_INCLUDEDIR})
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libfontconfig.pc.in
-    ${CMAKE_CURRENT_BINARY_DIR}/libfontconfig.pc @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/fontconfig.pc.in
+    ${CMAKE_CURRENT_BINARY_DIR}/fontconfig.pc @ONLY)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/fonts.conf.in
     ${CMAKE_CURRENT_BINARY_DIR}/fonts.conf @ONLY)
@@ -138,7 +138,7 @@ endif()
 
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
   # Install pkg-config files
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libfontconfig.pc
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/fontconfig.pc
           DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
   # Install font config files
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/fonts.conf
