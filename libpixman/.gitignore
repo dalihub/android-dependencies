@@ -23,7 +23,6 @@ libtool
 ltmain.sh
 missing
 stamp-h?
-config.h
 config.h.in
 .*.swp
 demos/*-test
