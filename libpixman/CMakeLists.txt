@@ -86,6 +86,7 @@ endif()
 
 set(libpixman_public_hdrs
   pixman/pixman.h
+  pixman/pixman-version.h
 )
 
 set(libpixman_private_hdrs
@@ -136,8 +137,8 @@ set(libpixman_sources
 unset(PIXMAN_LIB_TARGETS)
 
 if(PIXMAN_SHARED)
-  add_library(pixman SHARED ${libpixman_sources})
-  set(PIXMAN_LIB_TARGETS pixman)
+  add_library(pixman-1 SHARED ${libpixman_sources})
+  set(PIXMAN_LIB_TARGETS pixman-1)
 endif()
 
 if(PIXMAN_STATIC)
@@ -171,7 +172,7 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/pixman-1.pc.in
 # INSTALL
 if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
   install(TARGETS ${PIXMAN_LIB_TARGETS}
-    EXPORT libpixman
+    EXPORT libpixman-1
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}

@@ -23,11 +23,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/fontconfig)
 
 set(libfontconfig_public_hdrs
   fontconfig/fontconfig.h
+  fontconfig/fcfreetype.h
 )
 
 set(libfontconfig_private_hdrs
   config.h
-  fontconfig/fcfreetype.h
   fontconfig/fcprivate.h
   src/fcint.h
 )
@@ -133,7 +133,7 @@ if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
 endif()
 
 if(NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
-  install(FILES ${libfontconfig_public_hdrs} DESTINATION include)
+  install(FILES ${libfontconfig_public_hdrs} DESTINATION include/fontconfig)
 endif()
 
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)

@@ -10,7 +10,6 @@ aclocal.m4
 autom4te.cache
 confdefs.h
 config.cache
-config.h
 config.h.in
 config.status
 configure

@@ -59,7 +59,7 @@ cd -
 
 buildLib "../zlib"
 buildLib "../libgif" "-DGIF_SHARED=ON"
-buildLib "../libpng" "-DPNG_SHARED=ON"
+buildLib "../libpng" "-DPNG_SHARED=ON -DCMAKE_DEBUG_POSTFIX=''"
 buildLib "../libexif" "-DEXIF_SHARED=ON"
 buildLib "../libjpeg-turbo" "-DENABLE_SHARED=ON" "turbojpeg"
 buildLib "../libexpat/expat" "-DBUILD_shared=ON"
@@ -70,3 +70,4 @@ buildLib "../libfontconfig" "-DFONTCONFIG_SHARED=ON -DREAD_ONLY_DIR=/data/data/c
 buildLib "../libfribidi" "-DFRIBIDI_SHARED=ON"
 buildLib "../libcurl" "-DBUILD_CURL_EXE=OFF -DCMAKE_USE_OPENSSL=OFF -DCMAKE_USE_LIBSSH2=OFF -DCURL_CA_PATH=none -DCMAKE_DEBUG_POSTFIX=''"
 buildLib "../libpixman" "-DPIXMAN_SHARED=ON"
+buildLib "../libcairo" "-DCAIRO_SHARED=ON"
