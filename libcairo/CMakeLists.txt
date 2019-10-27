@@ -121,10 +121,6 @@ set(libcairo_font_subset_sources
   src/cairo-type3-glyph-surface.c
 )
 
-set(libcairo_cairo_png_sources
-  src/cairo-png.c
-)
-
 set(libcairo_svg_headers
   src/cairo-svg.h
 )
@@ -165,18 +161,66 @@ set(libcairo_deflate_stream_sources
   src/cairo-deflate-stream.c
 )
 
+find_package(PkgConfig)
+
+pkg_check_modules(PIXMAN pixman-1)
+if (NOT PIXMAN_FOUND)
+  include (FindPixman)
+  if (NOT PIXMAN_FOUND)
+    message(FATAL_ERROR "Failed to find pixman-1.")
+  endif ()
+endif ()
+
+include_directories(AFTER ${PIXMAN_INCLUDE_DIRS})
+
+pkg_check_modules(FREETYPE freetype2)
+if (NOT FREETYPE_FOUND)
+  include (FindFreetype)
+  if (NOT FREETYPE_FOUND)
+    message(FATAL_ERROR "Failed to find freetype.")
+  endif ()
+endif ()
+
+include_directories(AFTER ${FREETYPE_INCLUDE_DIRS})
+
+pkg_check_modules(FONTCONFIG fontconfig)
+if (NOT FONTCONFIG_FOUND)
+  include (FindFontconfig)
+  if (NOT FONTCONFIG_FOUND)
+    message(FATAL_ERROR "Failed to find fontconfig.")
+  endif ()
+endif ()
+
+include_directories(AFTER ${FONTCONFIG_INCLUDE_DIRS})
+
+set(libcairo_png_sources
+)
+
+pkg_check_modules(PNG libpng)
+if (NOT PNG_FOUND)
+  include (FindPng)
+endif ()
+
+if (PNG_FOUND)
+list(APPEND libcairo_png_sources
+  src/cairo-png.c
+)
+include_directories(AFTER ${PNG_INCLUDE_DIRS})
+endif()
+
 set(libcairo_sources
   ${libcairo_public_headers}
   ${libcairo_private_headers}
-  ${libcairo_private_font_subset_headers}
   ${libcairo_ft_headers}
   ${libcairo_ft_private_headers}
   ${libcairo_ft_sources}
+  ${libcairo_private_font_subset_headers}
+  ${libcairo_font_subset_sources}
   ${libcairo_script_headers}
   ${libcairo_script_private_headers}
   ${libcairo_script_sources}
   ${libcairo_deflate_stream_sources}
-  ${libcairo_cairo_png_sources}
+  ${libcairo_png_sources}
   src/cairo-analysis-surface.c
   src/cairo-arc.c
   src/cairo-array.c
@@ -286,48 +330,6 @@ set(libcairo_sources
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/src)
-
-find_package(PkgConfig)
-
-pkg_check_modules(PIXMAN pixman-1)
-if (NOT PIXMAN_FOUND)
-  include (FindPixman)
-  if (NOT PIXMAN_FOUND)
-    message(FATAL_ERROR "Failed to find pixman-1.")
-  endif ()
-endif ()
-
-include_directories(AFTER ${PIXMAN_INCLUDE_DIRS})
-
-pkg_check_modules(FREETYPE freetype2)
-if (NOT FREETYPE_FOUND)
-  include (FindFreetype)
-  if (NOT FREETYPE_FOUND)
-    message(FATAL_ERROR "Failed to find freetype.")
-  endif ()
-endif ()
-
-include_directories(AFTER ${FREETYPE_INCLUDE_DIRS})
-
-pkg_check_modules(FONTCONFIG fontconfig)
-if (NOT FONTCONFIG_FOUND)
-  include (FindFontconfig)
-  if (NOT FONTCONFIG_FOUND)
-    message(FATAL_ERROR "Failed to find fontconfig.")
-  endif ()
-endif ()
-
-include_directories(AFTER ${FONTCONFIG_INCLUDE_DIRS})
-
-pkg_check_modules(PNG libpng)
-if (NOT PNG_FOUND)
-  include (FindPng)
-  if (NOT PNG_FOUND)
-    message(FATAL_ERROR "Failed to find png.")
-  endif ()
-endif ()
-
-include_directories(AFTER ${PNG_INCLUDE_DIRS})
 
 unset(CAIRO_LIB_TARGETS)
 

@@ -22,7 +22,7 @@
 /* #undef CAIRO_CAN_TEST_WIN32_PRINTING_SURFACE */
 
 /* Define to 1 if dlsym is available */
-#define CAIRO_HAS_DLSYM 1
+/* #undef CAIRO_HAS_DLSYM */
 
 /* Define to 1 to enable cairo's cairo-script-interpreter feature */
 /* #undef CAIRO_HAS_INTERPRETER */
@@ -31,7 +31,7 @@
 #define CAIRO_HAS_PTHREAD 1
 
 /* Define to 1 if we have full pthread support */
-#define CAIRO_HAS_REAL_PTHREAD 1
+/* #undef CAIRO_HAS_REAL_PTHREAD */
 
 /* Define to 1 if libspectre is available */
 /* #undef CAIRO_HAS_SPECTRE */
@@ -67,7 +67,7 @@
 
 /* Define to 1 if your compiler supports the __builtin_return_address()
    intrinsic. */
-#define HAVE_BUILTIN_RETURN_ADDRESS 1
+/* #undef HAVE_BUILTIN_RETURN_ADDRESS */
 
 /* Define to 1 if you have the <byteswap.h> header file. */
 #define HAVE_BYTESWAP_H 1
@@ -79,13 +79,13 @@
 #define HAVE_CTIME_R 1
 
 /* Enable if your compiler supports the GCC __atomic_* atomic primitives */
-#define HAVE_CXX11_ATOMIC_PRIMITIVES 1
+/* #undef HAVE_CXX11_ATOMIC_PRIMITIVES */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
 
 /* Define to 1 if you have the `drand48' function. */
-#define HAVE_DRAND48 1
+/* #undef HAVE_DRAND48 */
 
 /* Define to 1 if you have the `FcFini' function. */
 #define HAVE_FCFINI 1
@@ -97,13 +97,13 @@
 #define HAVE_FCNTL_H 1
 
 /* Define to 1 if you have the `feclearexcept' function. */
-#define HAVE_FECLEAREXCEPT 1
+/* #undef HAVE_FECLEAREXCEPT */
 
 /* Define to 1 if you have the `fedisableexcept' function. */
-#define HAVE_FEDISABLEEXCEPT 1
+/* #undef  HAVE_FEDISABLEEXCEPT */
 
 /* Define to 1 if you have the `feenableexcept' function. */
-#define HAVE_FEENABLEEXCEPT 1
+/* #undef  HAVE_FEENABLEEXCEPT */
 
 /* Define to 1 if you have the <fenv.h> header file. */
 #define HAVE_FENV_H 1
@@ -161,7 +161,7 @@
 #define HAVE_LIBGEN_H 1
 
 /* Define to 1 if you have the `rt' library (-lrt). */
-#define HAVE_LIBRT 1
+/* #undef HAVE_LIBRT */
 
 /* Enable if you have libatomic-ops-dev installed */
 /* #undef HAVE_LIB_ATOMIC_OPS */
@@ -201,7 +201,7 @@
 /* #undef HAVE_POPPLER_PAGE_RENDER */
 
 /* Define to 1 if you have the `raise' function. */
-#define HAVE_RAISE 1
+/* #undef HAVE_RAISE */
 
 /* Define to 1 if you have the `rsvg_pixbuf_from_file' function. */
 /* #undef HAVE_RSVG_PIXBUF_FROM_FILE */
@@ -315,7 +315,7 @@
 /* #undef HAVE___UINT128_T */
 
 /* Define to 1 if shared memory segments are released deferred. */
-#define IPC_RMID_DEFERRED_RELEASE 1
+/* #undef IPC_RMID_DEFERRED_RELEASE */
 
 /* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"

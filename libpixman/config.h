@@ -23,7 +23,7 @@
 #define HAVE_FENV_H 1
 
 /* Whether the tool chain supports __float128 */
-#define HAVE_FLOAT128 /**/
+/* #undef HAVE_FLOAT128 */
 
 /* Whether the compiler supports GCC vector extensions */
 #define HAVE_GCC_VECTOR_EXTENSIONS /**/
@@ -140,7 +140,7 @@
 /* #undef USE_ARM_SIMD */
 
 /* use GNU-style inline assembler */
-/* #undef USE_GCC_INLINE_ASM 1 */
+#define USE_GCC_INLINE_ASM 1
 
 /* use Loongson Multimedia Instructions */
 /* #undef USE_LOONGSON_MMI */

@@ -8,10 +8,8 @@ cmake_policy(VERSION 3.1)
 project(libpixman C ASM)
 
 set(PACKAGE pixman)
-add_definitions(-DPACKAGE=${PACKAGE})
 set(PACKAGE_VERSION "0.38.5")
-add_definitions(-DPACKAGE_VERSION=${PACKAGE_VERSION})
-add_definitions(-DTLS=__thread)
+add_definitions(-DHAVE_CONFIG_H=1)
 
 include(GNUInstallDirs)
 
@@ -102,6 +100,7 @@ set(libpixman_private_hdrs
 set(libpixman_sources
   ${libpixman_public_hdrs}
   ${libpixman_private_hdrs}
+  ${libpixman_arm_neon_hdrs}
   pixman/pixman.c
   pixman/pixman-access.c
   pixman/pixman-access-accessors.c
@@ -132,6 +131,7 @@ set(libpixman_sources
   pixman/pixman-timer.c
   pixman/pixman-trap.c
   pixman/pixman-utils.c
+  ${libpixman_arm_neon_sources}
 )
 
 unset(PIXMAN_LIB_TARGETS)
