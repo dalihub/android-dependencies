@@ -76,7 +76,9 @@ set(libfribidi_sources
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/lib)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -DHAVE_CONFIG_H")
+set(PACKAGE_NAME "GNU FriBidi")
+set(VERSION "1.0.7")
+add_definitions(-DHAVE_CONFIG_H=1)
 
 unset(FRIBIDI_LIB_TARGETS)
 
