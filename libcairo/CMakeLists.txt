@@ -16,6 +16,8 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 set(libcairo_public_headers
   src/cairo.h
+  src/cairo-features.h
+  src/cairo-version.h
   src/cairo-deprecated.h
 )
 
@@ -376,6 +378,7 @@ endif()
 
 if(NOT SKIP_INSTALL_HEADERS AND NOT SKIP_INSTALL_ALL)
   install(FILES ${libcairo_public_headers} DESTINATION include)
+  install(FILES ${libcairo_ft_headers} DESTINATION include)
 endif()
 
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
