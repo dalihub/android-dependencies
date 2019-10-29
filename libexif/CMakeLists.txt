@@ -29,11 +29,11 @@ set(libexif_public_hdrs
   libexif/exif-system.h
   libexif/exif-tag.h
   libexif/exif-utils.h
+  libexif/_stdint.h
 )
 
 set(libexif_private_hdrs
   config.h
-  libexif/_stdint.h
   libexif/i18n.h
   libexif/canon/exif-mnote-data-canon.h
   libexif/canon/mnote-canon-entry.h
@@ -110,7 +110,7 @@ set(exec_prefix ${CMAKE_INSTALL_PREFIX})
 set(libdir      ${CMAKE_INSTALL_FULL_LIBDIR})
 set(includedir  ${CMAKE_INSTALL_FULL_INCLUDEDIR}/libexif)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libexif.pc.in
-    ${CMAKE_CURRENT_BINARY_DIR}/libexif.pc @ONLY)
+    ${CMAKE_CURRENT_BINARY_DIR}/exif.pc @ONLY)
 
 # INSTALL
 if(NOT SKIP_INSTALL_LIBRARIES AND NOT SKIP_INSTALL_ALL)
@@ -128,7 +128,7 @@ endif()
 
 if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
   # Install pkg-config files
-  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libexif.pc
+  install(FILES ${CMAKE_CURRENT_BINARY_DIR}/exif.pc
           DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
 endif()
 
