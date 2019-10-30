@@ -9,6 +9,7 @@ project(libcairo C)
 
 add_definitions(-DHAVE_CONFIG_H=1)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -fno-builtin -Wno-enum-conversion -Wno-parentheses-equality")
+set(VERSION "1.17.3")
 
 include(GNUInstallDirs)
 
