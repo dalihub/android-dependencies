@@ -95,14 +95,14 @@
 #define HAVE_EXPAT 1
 
 /* System font directory */
-#define FC_DEFAULT_FONTS "/data/data/com.sec.dali_demo/files/fonts"
+#define FC_DEFAULT_FONTS "./files/.fonts"
 
 /**/
-#define FONTCONFIG_PATH "/data/data/com.sec.dali_demo/files/fonts"
+#define FONTCONFIG_PATH "./files/.fonts/fonts.conf"
 
 /* Additional font directories */
 #define FC_ADD_FONTS "no"
 
 /* Font configuration directory */
-#define CONFDIR "/data/data/com.sec.dali_demo/files/fonts"
+#define CONFDIR "./files/.fonts"
 

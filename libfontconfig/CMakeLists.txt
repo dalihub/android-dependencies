@@ -11,9 +11,13 @@ set(VERSION "2.2.6")
 set(SOVERSION "2")
 set(FONTCONFIG_PATH "${READ_ONLY_DIR}")
 set(FC_DEFAULT_FONTS "${READ_ONLY_DIR}")
+execute_process ( COMMAND date OUTPUT_VARIABLE FC_FONTDATE) 
 
-add_definitions(-DFONTCONFIG_PATH=\"${FONTCONFIG_PATH}\")
+add_definitions(-DHAVE_CONFIG_H=1)
+add_definitions(-DFONTCONFIG_PATH=\"${FONTCONFIG_PATH}/fonts.conf\")
 add_definitions(-DFC_DEFAULT_FONTS=\"${FC_DEFAULT_FONTS}\")
+#TODO
+#add_definitions(-DFC_FONTDATE="${FC_FONTDATE}")
 
 include(GNUInstallDirs)
 
@@ -142,11 +146,11 @@ if(NOT SKIP_INSTALL_FILES AND NOT SKIP_INSTALL_ALL)
           DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
   # Install font config files
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/fonts.conf
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/fonts)
+          DESTINATION ${FONTCONFIG_INSTALL_PATH})
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/fonts.dtd
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/fonts)
+          DESTINATION ${FONTCONFIG_INSTALL_PATH})
   install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/local.conf
-          DESTINATION ${CMAKE_INSTALL_PREFIX}/fonts)
+          DESTINATION ${FONTCONFIG_INSTALL_PATH})
 endif()
 
 # Create an export file that CMake users can include() to import our targets.
