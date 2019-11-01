@@ -17,6 +17,24 @@ if [ ! -d "$ANDROID_NDK" ]; then
   exit 1
 fi
 
+if [ "$1" = "clean" ]; then
+echo "Cleaning dali dependencies..."
+rm -rf ../libcurl/cmake
+rm -rf ../libgif/cmake
+rm -rf ../libpixman/cmake
+rm -rf ../libharfbuzz/cmake
+rm -rf ../libexif/cmake
+rm -rf ../zlib/cmake
+rm -rf ../libcairo/cmake
+rm -rf ../libfribidi/cmake
+rm -rf ../libexpat/expat/cmake
+rm -rf ../libfreetype/cmake
+rm -rf ../libfontconfig/cmake
+rm -rf ../libjpeg-turbo/cmake
+rm -rf ../libpng/cmake
+exit 0
+fi
+
 export CMAKE_INSTALL_PREFIX=${PREFIX}
 export CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_PREFIX}/lib/${ANDROID_ABI}
 export CMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_PREFIX}/include
