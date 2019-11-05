@@ -75,17 +75,25 @@ make install
 cd -
 }
 
+if [ ! -z "$SHARED" ]; then
+STATIC="OFF"
+SHARED="ON"
+else
+STATIC="ON"
+SHARED="OFF"
+fi
+
 buildLib "../zlib"
-buildLib "../libgif" "-DGIF_SHARED=ON"
-buildLib "../libpng" "-DPNG_SHARED=ON -DCMAKE_DEBUG_POSTFIX=''"
-buildLib "../libexif" "-DEXIF_SHARED=ON"
-buildLib "../libjpeg-turbo" "-DENABLE_SHARED=ON" "turbojpeg"
-buildLib "../libexpat/expat" "-DBUILD_shared=ON"
-buildLib "../libfreetype" "-DBUILD_SHARED_LIBS=ON -DFT_WITH_ZLIB=ON -DFT_WITH_PNG=OFF -DFT_WITH_HARFBUZZ=OFF -DDISABLE_FORCE_DEBUG_POSTFIX=ON -DENABLE_DEVEL=ON"
-buildLib "../libharfbuzz" "-DHB_BUILTIN_UCDN=ON -DHB_HAVE_FREETYPE=ON -DBUILD_SHARED_LIBS=ON"
-buildLib "../libfreetype" "-DHB_BUILTIN_UCDN=ON -DHB_HAVE_FREETYPE=ON -DBUILD_SHARED_LIBS=ON"
-buildLib "../libfontconfig" "-DFONTCONFIG_SHARED=ON -DREAD_ONLY_DIR=./files/.fonts -DFONTCONFIG_INSTALL_PATH='${PREFIX}/files/.fonts'"
-buildLib "../libfribidi" "-DFRIBIDI_SHARED=ON"
-buildLib "../libcurl" "-DBUILD_CURL_EXE=OFF -DCMAKE_USE_OPENSSL=OFF -DCMAKE_USE_LIBSSH2=OFF -DCURL_CA_PATH=none -DCMAKE_DEBUG_POSTFIX=''"
-buildLib "../libpixman" "-DPIXMAN_SHARED=ON"
-buildLib "../libcairo" "-DCAIRO_SHARED=ON"
+buildLib "../libgif" "-DGIF_SHARED=${SHARED} -DGIF_STATIC=${STATIC}"
+buildLib "../libpng" "-DPNG_SHARED=${SHARED} -DPNG_STATIC=${STATIC} -DPNG_TESTS=OFF -DCMAKE_DEBUG_POSTFIX='' -DPNG_LIB_NAME='png'"
+buildLib "../libexif" "-DEXIF_SHARED=${SHARED} -DEXIF_STATIC=${STATIC}"
+buildLib "../libjpeg-turbo" "-DENABLE_SHARED=${SHARED} -DENABLE_STATIC=${STATIC}" "turbojpeg"
+buildLib "../libexpat/expat" "-DBUILD_shared=${SHARED}"
+buildLib "../libfreetype" "-DBUILD_SHARED_LIBS=${SHARED} -DFT_WITH_ZLIB=ON -DFT_WITH_PNG=OFF -DFT_WITH_HARFBUZZ=OFF -DDISABLE_FORCE_DEBUG_POSTFIX=ON -DENABLE_DEVEL=ON"
+buildLib "../libharfbuzz" "-DHB_BUILTIN_UCDN=ON -DHB_HAVE_FREETYPE=ON -DBUILD_SHARED_LIBS=${SHARED} -DHB_BUILD_TESTS=OFF"
+buildLib "../libfontconfig" "-DFONTCONFIG_SHARED=${SHARED} -DFONTCONFIG_STATIC=${STATIC} -DREAD_ONLY_DIR=./files/.fonts -DFONTCONFIG_INSTALL_PATH='${PREFIX}/files/.fonts'"
+buildLib "../libfribidi" "-DFRIBIDI_SHARED=${SHARED} -DFRIBIDI_STATIC=${STATIC}"
+buildLib "../libcurl" "-DBUILD_SHARED_LIBS=${SHARED} -DBUILD_CURL_EXE=OFF -DCMAKE_USE_OPENSSL=OFF -DCMAKE_USE_LIBSSH2=OFF -DCURL_CA_PATH=none -DCMAKE_DEBUG_POSTFIX=''"
+buildLib "../libpixman" "-DPIXMAN_SHARED=${SHARED} -DPIXMAN_STATIC=${STATIC}"
+buildLib "../libcairo" "-DCAIRO_SHARED=${SHARED} -DCAIRO_STATIC=${STATIC}"
+

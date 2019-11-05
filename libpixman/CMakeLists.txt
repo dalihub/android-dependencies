@@ -143,6 +143,7 @@ endif()
 
 if(PIXMAN_STATIC)
   add_library(pixman_static STATIC ${libpixman_sources})
+  set_target_properties(pixman_static PROPERTIES OUTPUT_NAME "pixman-1")
   list(APPEND PIXMAN_LIB_TARGETS pixman_static)
 endif()
 

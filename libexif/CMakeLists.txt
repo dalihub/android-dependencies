@@ -90,6 +90,7 @@ endif()
 
 if(EXIF_STATIC)
   add_library(exif_static STATIC ${libexif_sources})
+  set_target_properties(exif_static PROPERTIES OUTPUT_NAME "exif")
   list(APPEND EXIF_LIB_TARGETS exif_static)
 endif()
 

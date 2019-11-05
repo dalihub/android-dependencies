@@ -89,6 +89,7 @@ endif()
 
 if(FRIBIDI_STATIC)
   add_library(fribidi_static STATIC ${libfribidi_sources})
+  set_target_properties(fribidi_static PROPERTIES OUTPUT_NAME "fribidi")
   list(APPEND FRIBIDI_LIB_TARGETS fribidi_static)
 endif()
 

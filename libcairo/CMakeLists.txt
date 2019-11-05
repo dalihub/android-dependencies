@@ -343,6 +343,7 @@ endif()
 
 if(CAIRO_STATIC)
   add_library(cairo_static STATIC ${libcairo_sources})
+  set_target_properties(cairo_static PROPERTIES OUTPUT_NAME "cairo")
   list(APPEND CAIRO_LIB_TARGETS cairo_static)
 endif()
 

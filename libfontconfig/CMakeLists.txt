@@ -101,6 +101,7 @@ endif()
 
 if(FONTCONFIG_STATIC)
   add_library(fontconfig_static STATIC ${libfontconfig_sources})
+  set_target_properties(fontconfig_static PROPERTIES OUTPUT_NAME "fontconfig")
   list(APPEND FONTCONFIG_LIB_TARGETS fontconfig_static)
 endif()
 

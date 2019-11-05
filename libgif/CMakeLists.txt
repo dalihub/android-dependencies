@@ -51,6 +51,7 @@ endif()
 
 if(GIF_STATIC)
   add_library(gif_static STATIC ${libgif_sources})
+  set_target_properties(gif_static PROPERTIES OUTPUT_NAME "gif")
   list(APPEND GIF_LIB_TARGETS gif_static)
 endif()
 
