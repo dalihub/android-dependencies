@@ -95,14 +95,14 @@
 #define HAVE_EXPAT 1
 
 /* System font directory */
-#define FC_DEFAULT_FONTS "./files/.fonts"
+#define FC_DEFAULT_FONTS "fonts"
 
 /**/
-#define FONTCONFIG_PATH "./files/.fonts/fonts.conf"
+#define FONTCONFIG_PATH "fonts/fonts.conf"
 
 /* Additional font directories */
 #define FC_ADD_FONTS "no"
 
 /* Font configuration directory */
-#define CONFDIR "./files/.fonts"
+#define CONFDIR "fonts"
 
