@@ -1167,7 +1167,8 @@ if(BUILD_CURL_EXE)
 endif()
 
 include(CTest)
-if(BUILD_TESTING)
+if(BUILD_TESTING AND NOT ANDROID)
+  message(STATUS "Building tests")
   add_subdirectory(tests)
 endif()
 
