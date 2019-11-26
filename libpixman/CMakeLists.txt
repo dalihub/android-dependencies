@@ -18,14 +18,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/pixman)
 
 if(ANDROID)
-
-include_directories(${ANDROID_NDK})
-include_directories(${ANDROID_NDK}/sources)
-include_directories(${ANDROID_NDK}/sources/android)
-include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
-add_library(cpufeatures STATIC
+  include_directories(${ANDROID_NDK})
+  include_directories(${ANDROID_NDK}/sources)
+  include_directories(${ANDROID_NDK}/sources/android)
+  include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
+  add_library(cpufeatures STATIC
     ${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c)
-
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-incompatible-pointer-types -Wno-unknown-attributes")
 endif()
 
 # TODO
