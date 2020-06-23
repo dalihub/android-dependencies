@@ -45,3 +45,7 @@ cd libpng
 TARGET=x86_64 API=25 make $@
 TARGET=armeabi-v7a API=25 make $@
 cd ..
+cd libwebp
+TARGET=x86_64 API=25 make $@
+TARGET=armeabi-v7a API=25 make $@
+cd ..

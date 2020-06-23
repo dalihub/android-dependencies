@@ -32,6 +32,7 @@ rm -rf ../libfreetype/cmake
 rm -rf ../libfontconfig/cmake
 rm -rf ../libjpeg-turbo/cmake
 rm -rf ../libpng/cmake
+rm -rf ../libwebp/cmake
 exit 0
 fi
 
@@ -88,6 +89,7 @@ SHARED="OFF"
 fi
 
 buildLib "../zlib"
+buildLib "../libwebp" "-DENABLE_SHARED=${SHARED}"
 buildLib "../libgif" "-DGIF_SHARED=${SHARED} -DGIF_STATIC=${STATIC}"
 buildLib "../libpng" "-DPNG_SHARED=${SHARED} -DPNG_STATIC=${STATIC} -DPNG_TESTS=OFF -DCMAKE_DEBUG_POSTFIX='' -DPNG_LIB_NAME='png'"
 buildLib "../libexif" "-DEXIF_SHARED=${SHARED} -DEXIF_STATIC=${STATIC}"
