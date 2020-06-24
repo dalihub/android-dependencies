@@ -15,4 +15,6 @@ libjpeg-turbo/obj
 libjpeg-turbo/lib
 libpng/obj
 libpng/lib
+libwebp/obj
+libwebp/lib
 
