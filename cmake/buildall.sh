@@ -32,7 +32,7 @@ rm -rf ../libfreetype/cmake
 rm -rf ../libfontconfig/cmake
 rm -rf ../libjpeg-turbo/cmake
 rm -rf ../libpng/cmake
-rm -rf ../libwebp/cmake
+rm -rf ../libwebp/cmake/${ANDROID_ABI}
 exit 0
 fi
 
@@ -74,7 +74,7 @@ ${CMAKE} ${TOP_DIR}/$1 -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPIL
 
 fi
 
-make $3
+make $3 || exit 1
 make install
 
 cd -
