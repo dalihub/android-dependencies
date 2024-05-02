@@ -14,38 +14,38 @@ if [ ! -d "$ANDROID_NDK" ]; then
 fi
 
 cd libexif
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libexpat
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libfontconfig
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libfreetype
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libgif
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libharfbuzz
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libjpeg-turbo
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libpng
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
 cd libwebp
-TARGET=x86_64 API=25 make $@
-TARGET=armeabi-v7a API=25 make $@
+TARGET=x86_64 API=30 make $@
+TARGET=armeabi-v7a API=30 make $@
 cd ..
