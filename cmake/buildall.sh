@@ -48,7 +48,7 @@ export PKG_CONFIG_PATH=${CMAKE_INSTALL_LIBDIR}/pkgconfig
 export CMAKE_C_COMPILER=${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/clang
 export CMAKE_CXX_COMPILER=${ANDROID_NDK}/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++
 export CMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake
-export CMAKE=${ANDROID_SDK}/cmake/3.10.2.4988404/bin/cmake
+export CMAKE=${ANDROID_SDK}/cmake/3.22.1/bin/cmake
 export CMAKE_BUILD_TYPE=Release
 
 if [ ! -z "$DEBUG" ]; then
