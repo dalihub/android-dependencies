@@ -30,4 +30,5 @@ libjpeg-turbo/cmake
 libpixman/cmake
 libpng/cmake
 libwebp/cmake/armeabi-v7a
+libwebp/cmake/arm64-v8a/
 zlib/cmake/
