@@ -39,6 +39,7 @@ fi
 if [ -z "$PREFIX" ]; then
 export PREFIX=$(cd ../../; pwd)/dali-env/android
 fi
+echo "Using PREFIX=\"$PREFIX\""
 
 export CMAKE_INSTALL_PREFIX=${PREFIX}
 export CMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_PREFIX}/lib/${ANDROID_ABI}
