@@ -33,6 +33,9 @@ rm -rf ../libfontconfig/cmake
 rm -rf ../libjpeg-turbo/cmake
 rm -rf ../libpng/cmake
 rm -rf ../libwebp/cmake/${ANDROID_ABI}
+rm -rf ../Vulkan-Headers/cmake/${ANDROID_ABI}
+rm -rf ../SPIRV-Tools/cmake/${ANDROID_ABI}
+rm -rf ../glslang/cmake/${ANDROID_ABI}
 exit 0
 fi
 
@@ -75,7 +78,7 @@ ${CMAKE} ${TOP_DIR}/$1 -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPIL
 
 fi
 
-make $3 || exit 1
+make -j8 $3 || exit 1
 make install
 
 cd -
@@ -103,4 +106,7 @@ buildLib "../libfribidi" "-DFRIBIDI_SHARED=${SHARED} -DFRIBIDI_STATIC=${STATIC}"
 buildLib "../libcurl" "-DBUILD_SHARED_LIBS=${SHARED} -DBUILD_CURL_EXE=OFF -DCMAKE_USE_OPENSSL=OFF -DCMAKE_USE_LIBSSH2=OFF -DCURL_CA_PATH=none -DCMAKE_DEBUG_POSTFIX=''" "libcurl"
 buildLib "../libpixman" "-DPIXMAN_SHARED=${SHARED} -DPIXMAN_STATIC=${STATIC} -DSKIP_INSTALL_EXPORT=1"
 buildLib "../libcairo" "-DCAIRO_SHARED=${SHARED} -DCAIRO_STATIC=${STATIC}"
+buildLib "../Vulkan-Headers"
+buildLib "../SPIRV-Tools"
+buildLib "../glslang" "-DENABLE_OPT=0"
 
