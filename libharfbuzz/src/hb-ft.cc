@@ -620,8 +620,9 @@ hb_ft_face_create_referenced (FT_Face ft_face)
 }
 
 static void
-hb_ft_face_finalize (FT_Face ft_face)
+hb_ft_face_finalize (void *arg)
 {
+  FT_Face ft_face = (FT_Face) arg;
   hb_face_destroy ((hb_face_t *) ft_face->generic.data);
 }
 
@@ -788,8 +789,9 @@ get_ft_library ()
 }
 
 static void
-_release_blob (FT_Face ft_face)
+_release_blob (void *arg)
 {
+  FT_Face ft_face = (FT_Face) arg;
   hb_blob_destroy ((hb_blob_t *) ft_face->generic.data);
 }
 
