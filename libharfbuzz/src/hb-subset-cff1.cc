@@ -464,12 +464,11 @@ struct cff_subset_plan {
   unsigned int plan_subset_encoding (const OT::cff1::accelerator_subset_t &acc, hb_subset_plan_t *plan)
   {
     const Encoding *encoding = acc.encoding;
-    unsigned int  size0, size1, supp_size;
+    unsigned int  size0, size1;
     hb_codepoint_t  code, last_code = CFF_UNDEF_CODE;
     hb_vector_t<hb_codepoint_t> supp_codes;
 
     subset_enc_code_ranges.resize (0);
-    supp_size = 0;
     supp_codes.init ();
 
     subset_enc_num_codes = plan->num_output_glyphs () - 1;
@@ -505,7 +504,6 @@ struct cff_subset_plan {
 	  code_pair_t pair = { supp_codes[i], sid };
 	  subset_enc_supp_codes.push (pair);
 	}
-	supp_size += SuppEncoding::static_size * supp_codes.length;
       }
     }
     supp_codes.fini ();
